@@ -8,13 +8,13 @@ import './css/app.css'
 
 // Demo
 /* eslint-disable */
-if (window.parent) {
-  const html = document.documentElement;
-  if (html) {
-    html.style.setProperty('--f7-safe-area-top', '44px');
-    html.style.setProperty('--f7-safe-area-bottom', '34px');
-  }
-}
+// if (window.parent) {
+//   const html = document.documentElement;
+//   if (html) {
+//     html.style.setProperty('--f7-safe-area-top', '44px');
+//     html.style.setProperty('--f7-safe-area-bottom', '34px');
+//   }
+// }
 /* eslint-enable */
 
 Framework7.use(Framework7Vue);
