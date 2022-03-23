@@ -19,6 +19,6 @@ Tutorials available at https://framework7.io/tutorials/
 ## Examples
 
 - core
-- vue
+- [vue](https://framework7-examples.vercel.app/)
 - react
 - svelte
