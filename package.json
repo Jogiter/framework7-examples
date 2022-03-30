@@ -1,0 +1,25 @@
+{
+  "name": "framework7-examples",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Framework7</h1>",
+  "main": "index.js",
+  "scripts": {
+    "cz": "cz",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.zhlh6.cn:Jogiter/framework7-examples.git"
+  },
+  "keywords": [],
+  "author": "jogiter",
+  "license": "ISC",
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
