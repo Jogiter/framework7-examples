@@ -1,147 +1,31 @@
-import Home from './pages/home.vue';
-import PanelLeft from './pages/panel-left.vue';
-import PanelRight from './pages/panel-right.vue';
-import About from './pages/about.vue';
-
-import Accordion from './pages/accordion.vue';
-import ActionSheet from './pages/action-sheet.vue';
-import Appbar from './pages/appbar.vue';
-import AreaChart from './pages/area-chart.vue';
-import Autocomplete from './pages/autocomplete.vue';
-import Badge from './pages/badge.vue';
-// import Breadcrumbs from './pages/breadcrumbs.vue';
-import Buttons from './pages/buttons.vue';
-import Calendar from './pages/calendar.vue';
-import CalendarPage from './pages/calendar-page.vue';
-import Cards from './pages/cards.vue';
-import CardsExpandable from './pages/cards-expandable.vue';
-import Checkbox from './pages/checkbox.vue';
-import Chips from './pages/chips.vue';
-import ColorPicker from './pages/color-picker.vue';
-import ContactsList from './pages/contacts-list.vue';
-import ContentBlock from './pages/content-block.vue';
-import DataTable from './pages/data-table.vue';
-import Dialog from './pages/dialog.vue';
-import Elevation from './pages/elevation.vue';
-import Fab from './pages/fab.vue';
-import FabMorph from './pages/fab-morph.vue';
-import FormStorage from './pages/form-storage.vue';
-import Gauge from './pages/gauge.vue';
-import Grid from './pages/grid.vue';
-import Icons from './pages/icons.vue';
-import InfiniteScroll from './pages/infinite-scroll.vue';
-import Inputs from './pages/inputs.vue';
-import LazyLoad from './pages/lazy-load.vue';
-import List from './pages/list.vue';
-import ListIndex from './pages/list-index.vue';
-import LoginScreen from './pages/login-screen.vue';
-import LoginScreenPage from './pages/login-screen-page.vue';
-import Menu from './pages/menu.vue';
-import MenuList from './pages/menu-list.vue';
-import Messages from './pages/messages.vue';
-import Navbar from './pages/navbar.vue';
-import NavbarHideScroll from './pages/navbar-hide-scroll.vue';
-import Notifications from './pages/notifications.vue';
-import Panel from './pages/panel.vue';
-import PhotoBrowser from './pages/photo-browser.vue';
-import Picker from './pages/picker.vue';
-import PieChart from './pages/pie-chart.vue';
-import Popup from './pages/popup.vue';
-import Popover from './pages/popover.vue';
-import Preloader from './pages/preloader.vue';
-import Progressbar from './pages/progressbar.vue';
-import PullToRefresh from './pages/pull-to-refresh.vue';
-import Radio from './pages/radio.vue';
-import Range from './pages/range.vue';
-import Searchbar from './pages/searchbar.vue';
-import SearchbarExpandable from './pages/searchbar-expandable.vue';
-import SheetModal from './pages/sheet-modal.vue';
-import Skeleton from './pages/skeleton.vue';
-import SmartSelect from './pages/smart-select.vue';
-import Sortable from './pages/sortable.vue';
-import Stepper from './pages/stepper.vue';
-import Subnavbar from './pages/subnavbar.vue';
-import SubnavbarTitle from './pages/subnavbar-title.vue';
-import Swiper from './pages/swiper.vue';
-import SwiperHorizontal from './pages/swiper-horizontal.vue';
-import SwiperVertical from './pages/swiper-vertical.vue';
-import SwiperSpaceBetween from './pages/swiper-space-between.vue';
-import SwiperMultiple from './pages/swiper-multiple.vue';
-import SwiperNested from './pages/swiper-nested.vue';
-import SwiperLoop from './pages/swiper-loop.vue';
-import Swiper3dCube from './pages/swiper-3d-cube.vue';
-import Swiper3dCoverflow from './pages/swiper-3d-coverflow.vue';
-import Swiper3dFlip from './pages/swiper-3d-flip.vue';
-import SwiperFade from './pages/swiper-fade.vue';
-import SwiperScrollbar from './pages/swiper-scrollbar.vue';
-import SwiperGallery from './pages/swiper-gallery.vue';
-import SwiperCustomControls from './pages/swiper-custom-controls.vue';
-import SwiperParallax from './pages/swiper-parallax.vue';
-import SwiperLazy from './pages/swiper-lazy.vue';
-import SwiperPaginationProgress from './pages/swiper-pagination-progress.vue';
-import SwiperPaginationFraction from './pages/swiper-pagination-fraction.vue';
-import SwiperZoom from './pages/swiper-zoom.vue';
-import Swipeout from './pages/swipeout.vue';
-import Tabs from './pages/tabs.vue';
-import TabsStatic from './pages/tabs-static.vue';
-import TabsAnimated from './pages/tabs-animated.vue';
-import TabsSwipeable from './pages/tabs-swipeable.vue';
-import TabsRoutable from './pages/tabs-routable.vue';
-import TextEditor from './pages/text-editor.vue';
-import Toast from './pages/toast.vue';
-import Toggle from './pages/toggle.vue';
-import ToolbarTabbar from './pages/toolbar-tabbar.vue';
-import Tabbar from './pages/tabbar.vue';
-import TabbarLabels from './pages/tabbar-labels.vue';
-import TabbarScrollable from './pages/tabbar-scrollable.vue';
-import ToolbarHideScroll from './pages/toolbar-hide-scroll.vue';
-import Tooltip from './pages/tooltip.vue';
-import Timeline from './pages/timeline.vue';
-import TimelineVertical from './pages/timeline-vertical.vue';
-import TimelineHorizontal from './pages/timeline-horizontal.vue';
-import TimelineHorizontalCalendar from './pages/timeline-horizontal-calendar.vue';
-import Treeview from './pages/treeview.vue';
-import VirtualList from './pages/virtual-list.vue';
-import ColorThemes from './pages/color-themes.vue';
-
-import PageTransitions from './pages/page-transitions.vue';
-import PageTransitionsEffect from './pages/page-transitions-effect.vue';
-
-import RoutableModals from './pages/routable-modals.vue';
-import RoutablePopup from './pages/routable-popup.vue';
-import RoutableActions from './pages/routable-actions.vue';
-
-import MasterDetailMaster from './pages/master-detail-master.vue';
-import MasterDetailDetail from './pages/master-detail-detail.vue';
-
-import Store from './pages/store.vue';
-
-import NotFound from './pages/404.vue';
-
 // Pages
 export default [
   // Index page
   {
     path: '/',
-    component: Home,
+    // component: Home,
+    asyncComponent: () => import('./pages/home.vue'),
     master(f7) {
-      return f7.theme === 'aurora';
+      return f7.theme === 'aurora'
     },
   },
   // About page
   {
     path: '/about/',
-    component: About,
+    // component: About,
+    asyncComponent: () => import('./pages/about.vue'),
   },
   // Left Panel
   {
     path: '/panel-left/',
-    component: PanelLeft,
+    // component: PanelLeft,
+    asyncComponent: () => import('./pages/panel-left.vue'),
   },
   // Right Panel
   {
     path: '/panel-right/',
-    component: PanelRight,
+    // component: PanelRight,
+    asyncComponent: () => import('./pages/panel-right.vue'),
   },
   // Right Panel pages
   {
@@ -198,27 +82,33 @@ export default [
   // Components
   {
     path: '/accordion/',
-    component: Accordion,
+    // component: Accordion,
+    asyncComponent: () => import('./pages/accordion.vue'),
   },
   {
     path: '/action-sheet/',
-    component: ActionSheet,
+    // component: ActionSheet,
+    asyncComponent: () => import('./pages/action-sheet.vue'),
   },
   {
     path: '/appbar/',
-    component: Appbar,
+    // component: Appbar,
+    asyncComponent: () => import('./pages/appbar.vue'),
   },
   {
     path: '/area-chart/',
-    component: AreaChart,
+    // component: AreaChart,
+    asyncComponent: () => import('./pages/area-chart.vue'),
   },
   {
     path: '/autocomplete/',
-    component: Autocomplete,
+    // component: Autocomplete,
+    asyncComponent: () => import('./pages/autocomplete.vue'),
   },
   {
     path: '/badge/',
-    component: Badge,
+    // component: Badge,
+    asyncComponent: () => import('./pages/badge.vue'),
   },
   // {
   //   // path: '/breadcrumbs/',
@@ -226,313 +116,390 @@ export default [
   // },
   {
     path: '/buttons/',
-    component: Buttons,
+    // component: Buttons,
+    asyncComponent: () => import('./pages/buttons.vue'),
   },
   {
     path: '/calendar/',
-    component: Calendar,
+    // component: Calendar,
+    asyncComponent: () => import('./pages/calendar.vue'),
   },
   {
     path: '/calendar-page/',
-    component: CalendarPage,
+    // component: CalendarPage,
+    asyncComponent: () => import('./pages/calendar-page.vue'),
   },
   {
     path: '/cards/',
-    component: Cards,
+    // component: Cards,
+    asyncComponent: () => import('./pages/cards.vue'),
   },
   {
     path: '/cards-expandable/',
-    component: CardsExpandable,
+    // component: CardsExpandable,
+    asyncComponent: () => import('./pages/cards-expandable.vue'),
   },
   {
     path: '/checkbox/',
-    component: Checkbox,
+    // component: Checkbox,
+    asyncComponent: () => import('./pages/checkbox.vue'),
   },
   {
     path: '/chips/',
-    component: Chips,
+    // component: Chips,
+    asyncComponent: () => import('./pages/chips.vue'),
   },
   {
     path: '/color-picker/',
-    component: ColorPicker,
+    // component: ColorPicker,
+    asyncComponent: () => import('./pages/color-picker.vue'),
   },
   {
     path: '/contacts-list/',
-    component: ContactsList,
+    // component: ContactsList,
+    asyncComponent: () => import('./pages/contacts-list.vue'),
   },
   {
     path: '/content-block/',
-    component: ContentBlock,
+    // component: ContentBlock,
+    asyncComponent: () => import('./pages/content-block.vue'),
   },
   {
     path: '/data-table/',
-    component: DataTable,
+    // component: DataTable,
+    asyncComponent: () => import('./pages/data-table.vue'),
   },
   {
     path: '/dialog/',
-    component: Dialog,
+    // component: Dialog,
+    asyncComponent: () => import('./pages/dialog.vue'),
   },
   {
     path: '/elevation/',
-    component: Elevation,
+    // component: Elevation,
+    asyncComponent: () => import('./pages/elevation.vue'),
   },
   {
     path: '/fab/',
-    component: Fab,
+    // component: Fab,
+    asyncComponent: () => import('./pages/fab.vue'),
   },
   {
     path: '/fab-morph/',
-    component: FabMorph,
+    // component: FabMorph,
+    asyncComponent: () => import('./pages/fab-morph.vue'),
   },
   {
     path: '/form-storage/',
-    component: FormStorage,
+    // component: FormStorage,
+    asyncComponent: () => import('./pages/form-storage.vue'),
   },
   {
     path: '/gauge/',
-    component: Gauge,
+    // component: Gauge,
+    asyncComponent: () => import('./pages/gauge.vue'),
   },
   {
     path: '/grid/',
-    component: Grid,
+    // component: Grid,
+    asyncComponent: () => import('./pages/grid.vue'),
   },
   {
     path: '/icons/',
-    component: Icons,
+    // component: Icons,
+    asyncComponent: () => import('./pages/icons.vue'),
   },
   {
     path: '/infinite-scroll/',
-    component: InfiniteScroll,
+    // component: InfiniteScroll,
+    asyncComponent: () => import('./pages/infinite-scroll.vue'),
   },
   {
     path: '/inputs/',
-    component: Inputs,
+    // component: Inputs,
+    asyncComponent: () => import('./pages/inputs.vue'),
   },
   {
     path: '/lazy-load/',
-    component: LazyLoad,
+    // component: LazyLoad,
+    asyncComponent: () => import('./pages/lazy-load.vue'),
   },
   {
     path: '/list/',
-    component: List,
+    // component: List,
+    asyncComponent: () => import('./pages/list.vue'),
   },
   {
     path: '/list-index/',
-    component: ListIndex,
+    // component: ListIndex,
+    asyncComponent: () => import('./pages/list-index.vue'),
   },
   {
     path: '/login-screen/',
-    component: LoginScreen,
+    // component: LoginScreen,
+    asyncComponent: () => import('./pages/login-screen.vue'),
   },
   {
     path: '/login-screen-page/',
-    component: LoginScreenPage,
+    // component: LoginScreenPage,
+    asyncComponent: () => import('./pages/login-screen-page.vue'),
   },
   {
     path: '/menu/',
-    component: Menu,
+    // component: Menu,
+    asyncComponent: () => import('./pages/menu.vue'),
   },
   {
     path: '/menu-list/',
-    component: MenuList,
+    // component: MenuList,
+    asyncComponent: () => import('./pages/menu-list.vue'),
   },
   {
     path: '/messages/',
-    component: Messages,
+    // component: Messages,
+    asyncComponent: () => import('./pages/messages.vue'),
   },
   {
     path: '/navbar/',
-    component: Navbar,
+    // component: Navbar,
+    asyncComponent: () => import('./pages/navbar.vue'),
   },
   {
     path: '/navbar-hide-scroll/',
-    component: NavbarHideScroll,
+    // component: NavbarHideScroll,
+    asyncComponent: () => import('./pages/navbar-hide-scroll.vue'),
   },
   {
     path: '/notifications/',
-    component: Notifications,
+    // component: Notifications,
+    asyncComponent: () => import('./pages/notifications.vue'),
   },
   {
     path: '/panel/',
-    component: Panel,
+    // component: Panel,
+    asyncComponent: () => import('./pages/panel.vue'),
   },
   {
     path: '/photo-browser/',
-    component: PhotoBrowser,
+    // component: PhotoBrowser,
+    asyncComponent: () => import('./pages/photo-browser.vue'),
   },
   {
     path: '/picker/',
-    component: Picker,
+    // component: Picker,
+    asyncComponent: () => import('./pages/picker.vue'),
   },
   {
     path: '/pie-chart/',
-    component: PieChart,
+    // component: PieChart,
+    asyncComponent: () => import('./pages/pie-chart.vue'),
   },
   {
     path: '/popup/',
-    component: Popup,
+    // component: Popup,
+    asyncComponent: () => import('./pages/popup.vue'),
   },
   {
     path: '/popover/',
-    component: Popover,
+    // component: Popover,
+    asyncComponent: () => import('./pages/popover.vue'),
   },
   {
     path: '/preloader/',
-    component: Preloader,
+    // component: Preloader,
+    asyncComponent: () => import('./pages/preloader.vue'),
   },
   {
     path: '/progressbar/',
-    component: Progressbar,
+    // component: Progressbar,
+    asyncComponent: () => import('./pages/progressbar.vue'),
   },
   {
     path: '/pull-to-refresh/',
-    component: PullToRefresh,
+    // component: PullToRefresh,
+    asyncComponent: () => import('./pages/pull-to-refresh.vue'),
   },
   {
     path: '/radio/',
-    component: Radio,
+    // component: Radio,
+    asyncComponent: () => import('./pages/radio.vue'),
   },
   {
     path: '/range/',
-    component: Range,
+    // component: Range,
+    asyncComponent: () => import('./pages/range.vue'),
   },
   {
     path: '/searchbar/',
-    component: Searchbar,
+    // component: Searchbar,
+    asyncComponent: () => import('./pages/searchbar.vue'),
   },
   {
     path: '/searchbar-expandable/',
-    component: SearchbarExpandable,
+    // component: SearchbarExpandable,
+    asyncComponent: () => import('./pages/searchbar-expandable.vue'),
   },
   {
     path: '/sheet-modal/',
-    component: SheetModal,
+    // component: SheetModal,
+    asyncComponent: () => import('./pages/sheet-modal.vue'),
   },
   {
     path: '/skeleton/',
-    component: Skeleton,
+    // component: Skeleton,
+    asyncComponent: () => import('./pages/skeleton.vue'),
   },
   {
     path: '/smart-select/',
-    component: SmartSelect,
+    // component: SmartSelect,
+    asyncComponent: () => import('./pages/smart-select.vue'),
   },
   {
     path: '/sortable/',
-    component: Sortable,
+    // component: Sortable,
+    asyncComponent: () => import('./pages/sortable.vue'),
   },
   {
     path: '/stepper/',
-    component: Stepper,
+    // component: Stepper,
+    asyncComponent: () => import('./pages/stepper.vue'),
   },
   {
     path: '/subnavbar/',
-    component: Subnavbar,
+    // component: Subnavbar,
+    asyncComponent: () => import('./pages/subnavbar.vue'),
   },
   {
     path: '/subnavbar-title/',
-    component: SubnavbarTitle,
+    // component: SubnavbarTitle,
+    asyncComponent: () => import('./pages/subnavbar-title.vue'),
   },
   {
     path: '/swiper/',
-    component: Swiper,
+    // component: Swiper,
+    asyncComponent: () => import('./pages/swiper.vue'),
     routes: [
       {
         path: 'swiper-horizontal/',
-        component: SwiperHorizontal,
+        // component: SwiperHorizontal,
+        asyncComponent: () => import('./pages/swiper-horizontal.vue'),
       },
       {
         path: 'swiper-vertical/',
-        component: SwiperVertical,
+        // component: SwiperVertical,
+        asyncComponent: () => import('./pages/swiper-vertical.vue'),
       },
       {
         path: 'swiper-space-between/',
-        component: SwiperSpaceBetween,
+        // component: SwiperSpaceBetween,
+        asyncComponent: () => import('./pages/swiper-space-between.vue'),
       },
       {
         path: 'swiper-multiple/',
-        component: SwiperMultiple,
+        // component: SwiperMultiple,
+        asyncComponent: () => import('./pages/swiper-multiple.vue'),
       },
       {
         path: 'swiper-nested/',
-        component: SwiperNested,
+        // component: SwiperNested,
+        asyncComponent: () => import('./pages/swiper-nested.vue'),
       },
       {
         path: 'swiper-loop/',
-        component: SwiperLoop,
+        // component: SwiperLoop,
+        asyncComponent: () => import('./pages/swiper-loop.vue'),
       },
       {
         path: 'swiper-3d-cube/',
-        component: Swiper3dCube,
+        // component: Swiper3dCube,
+        asyncComponent: () => import('./pages/swiper-3d-cube.vue'),
       },
       {
         path: 'swiper-3d-coverflow/',
-        component: Swiper3dCoverflow,
+        // component: Swiper3dCoverflow,
+        asyncComponent: () => import('./pages/swiper-3d-coverflow.vue'),
       },
       {
         path: 'swiper-3d-flip/',
-        component: Swiper3dFlip,
+        // component: Swiper3dFlip,
+        asyncComponent: () => import('./pages/swiper-3d-flip.vue'),
       },
       {
         path: 'swiper-fade/',
-        component: SwiperFade,
+        // component: SwiperFade,
+        asyncComponent: () => import('./pages/swiper-fade.vue'),
       },
       {
         path: 'swiper-scrollbar/',
-        component: SwiperScrollbar,
+        // component: SwiperScrollbar,
+        asyncComponent: () => import('./pages/swiper-scrollbar.vue'),
       },
       {
         path: 'swiper-gallery/',
-        component: SwiperGallery,
+        // component: SwiperGallery,
+        asyncComponent: () => import('./pages/swiper-gallery.vue'),
       },
       {
         path: 'swiper-custom-controls/',
-        component: SwiperCustomControls,
+        // component: SwiperCustomControls,
+        asyncComponent: () => import('./pages/swiper-custom-controls.vue'),
       },
       {
         path: 'swiper-parallax/',
-        component: SwiperParallax,
+        // component: SwiperParallax,
+        asyncComponent: () => import('./pages/swiper-parallax.vue'),
       },
       {
         path: 'swiper-lazy/',
-        component: SwiperLazy,
+        // component: SwiperLazy,
+        asyncComponent: () => import('./pages/swiper-lazy.vue'),
       },
       {
         path: 'swiper-pagination-progress/',
-        component: SwiperPaginationProgress,
+        // component: SwiperPaginationProgress,
+        asyncComponent: () => import('./pages/swiper-pagination-progress.vue'),
       },
       {
         path: 'swiper-pagination-fraction/',
-        component: SwiperPaginationFraction,
+        // component: SwiperPaginationFraction,
+        asyncComponent: () => import('./pages/swiper-pagination-fraction.vue'),
       },
       {
         path: 'swiper-zoom/',
-        component: SwiperZoom,
+        // component: SwiperZoom,
+        asyncComponent: () => import('./pages/swiper-zoom.vue'),
       },
     ],
   },
   {
     path: '/swipeout/',
-    component: Swipeout,
+    // component: Swipeout,
+    asyncComponent: () => import('./pages/swipeout.vue'),
   },
   {
     path: '/tabs/',
-    component: Tabs,
+    // component: Tabs,
+    asyncComponent: () => import('./pages/tabs.vue'),
   },
   {
     path: '/tabs-static/',
-    component: TabsStatic,
+    // component: TabsStatic,
+    asyncComponent: () => import('./pages/tabs-static.vue'),
   },
   {
     path: '/tabs-animated/',
-    component: TabsAnimated,
+    // component: TabsAnimated,
+    asyncComponent: () => import('./pages/tabs-animated.vue'),
   },
   {
     path: '/tabs-swipeable/',
-    component: TabsSwipeable,
+    // component: TabsSwipeable,
+    asyncComponent: () => import('./pages/tabs-swipeable.vue'),
   },
   {
     path: '/tabs-routable/',
-    component: TabsRoutable,
+    // component: TabsRoutable,
+    asyncComponent: () => import('./pages/tabs-routable.vue'),
     tabs: [
       {
         path: '/',
@@ -574,121 +541,146 @@ export default [
   },
   {
     path: '/text-editor/',
-    component: TextEditor,
+    // component: TextEditor,
+    asyncComponent: () => import('./pages/text-editor.vue'),
   },
   {
     path: '/toast/',
-    component: Toast,
+    // component: Toast,
+    asyncComponent: () => import('./pages/toast.vue'),
   },
   {
     path: '/toggle/',
-    component: Toggle,
+    // component: Toggle,
+    asyncComponent: () => import('./pages/toggle.vue'),
   },
   {
     path: '/toolbar-tabbar/',
-    component: ToolbarTabbar,
+    // component: ToolbarTabbar,
+    asyncComponent: () => import('./pages/toolbar-tabbar.vue'),
     routes: [
       {
         path: 'tabbar/',
-        component: Tabbar,
+        // component: Tabbar,
+        asyncComponent: () => import('./pages/tabbar.vue'),
       },
       {
         path: 'tabbar-labels/',
-        component: TabbarLabels,
+        // component: TabbarLabels,
+        asyncComponent: () => import('./pages/tabbar-labels.vue'),
       },
       {
         path: 'tabbar-scrollable/',
-        component: TabbarScrollable,
+        // component: TabbarScrollable,
+        asyncComponent: () => import('./pages/tabbar-scrollable.vue'),
       },
       {
         path: 'toolbar-hide-scroll/',
-        component: ToolbarHideScroll,
+        // component: ToolbarHideScroll,
+        asyncComponent: () => import('./pages/toolbar-hide-scroll.vue'),
       },
     ],
   },
   {
     path: '/tooltip/',
-    component: Tooltip,
+    // component: Tooltip,
+    asyncComponent: () => import('./pages/tooltip.vue'),
   },
   {
     path: '/timeline/',
-    component: Timeline,
+    // component: Timeline,
+    asyncComponent: () => import('./pages/timeline.vue'),
   },
   {
     path: '/timeline-vertical/',
-    component: TimelineVertical,
+    // component: TimelineVertical,
+    asyncComponent: () => import('./pages/timeline-vertical.vue'),
   },
   {
     path: '/timeline-horizontal/',
-    component: TimelineHorizontal,
+    // component: TimelineHorizontal,
+    asyncComponent: () => import('./pages/timeline-horizontal.vue'),
   },
   {
     path: '/timeline-horizontal-calendar/',
-    component: TimelineHorizontalCalendar,
+    // component: TimelineHorizontalCalendar,
+    asyncComponent: () => import('./pages/timeline-horizontal-calendar.vue'),
   },
   {
     path: '/treeview/',
-    component: Treeview,
+    // component: Treeview,
+    asyncComponent: () => import('./pages/treeview.vue'),
   },
   {
     path: '/virtual-list/',
-    component: VirtualList,
+    // component: VirtualList,
+    asyncComponent: () => import('./pages/virtual-list.vue'),
   },
 
   // Color Themes
   {
     path: '/color-themes/',
-    component: ColorThemes,
+    // component: ColorThemes,
+    asyncComponent: () => import('./pages/color-themes.vue'),
   },
 
   // Page Transitions
   {
     path: '/page-transitions/',
-    component: PageTransitions,
+    // component: PageTransitions,
+    asyncComponent: () => import('./pages/page-transitions.vue'),
   },
   {
     path: '/page-transitions/:effect/',
-    component: PageTransitionsEffect,
+    // component: PageTransitionsEffect,
+    asyncComponent: () => import('./pages/page-transitions-effect.vue'),
   },
 
   // Routable Modals
   {
     path: '/routable-modals/',
-    component: RoutableModals,
+    // component: RoutableModals,
+    asyncComponent: () => import('./pages/routable-modals.vue'),
     routes: [
       {
         path: 'popup/',
         popup: {
-          component: RoutablePopup,
+          // component: RoutablePopup,
+          asyncComponent: () => import('./pages/routable-popup.vue'),
         },
       },
       {
         path: 'actions/',
         popup: {
-          component: RoutableActions,
+          // component: RoutableActions,
+          asyncComponent: () => import('./pages/routable-actions.vue'),
         },
       },
     ],
   },
   {
     path: '/master-detail/',
-    component: MasterDetailMaster,
+    // component: MasterDetailMaster,
+    asyncComponent: () => import('./pages/master-detail-master.vue'),
     master: true,
     detailRoutes: [
       {
         path: '/master-detail/:id/',
-        component: MasterDetailDetail,
+        // component: MasterDetailDetail,
+        asyncComponent: () => import('./pages/master-detail-detail.vue'),
       },
     ],
   },
   {
     path: '/store/',
-    component: Store,
+    // component: Store,
+    asyncComponent: () => import('./pages/store.vue'),
   },
 
   // Default route (404 page). MUST BE THE LAST
   {
     path: '(.*)',
-    component: NotFound,
+    // component: NotFound,
+    asyncComponent: () => import('./pages/404.vue'),
   },
-];
+]
